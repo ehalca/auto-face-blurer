@@ -1,0 +1,77 @@
+{
+  "name": "ui",
+  "$schema": "../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "ui/src",
+  "projectType": "application",
+  "targets": {
+    "build": {
+      "executor": "@nx/webpack:webpack",
+      "outputs": ["{options.outputPath}"],
+      "defaultConfiguration": "production",
+      "options": {
+        "compiler": "babel",
+        "outputPath": "dist/ui",
+        "index": "ui/src/index.html",
+        "baseHref": "/",
+        "main": "ui/src/main.tsx",
+        "tsConfig": "ui/tsconfig.app.json",
+        "assets": ["ui/src/favicon.ico", "ui/src/assets"],
+        "styles": ["ui/src/styles.css"],
+        "scripts": [],
+        "webpackConfig": "ui/webpack.config.js",
+        "postcssConfig": "ui/postcss.config.js"
+      },
+      "configurations": {
+        "development": {
+          "extractLicenses": false,
+          "optimization": false,
+          "sourceMap": true,
+          "vendorChunk": true
+        },
+        "production": {
+          "fileReplacements": [
+            {
+              "replace": "ui/src/environments/environment.ts",
+              "with": "ui/src/environments/environment.prod.ts"
+            }
+          ],
+          "optimization": true,
+          "outputHashing": "all",
+          "sourceMap": false,
+          "namedChunks": false,
+          "extractLicenses": true,
+          "vendorChunk": false
+        }
+      }
+    },
+    "serve": {
+      "executor": "@nx/webpack:dev-server",
+      "defaultConfiguration": "development",
+      "options": {
+        "buildTarget": "ui:build",
+        "hmr": true,
+        "proxyConfig": "ui/proxy.conf.json"
+      },
+      "configurations": {
+        "development": {
+          "buildTarget": "ui:build:development"
+        },
+        "production": {
+          "buildTarget": "ui:build:production",
+          "hmr": false
+        }
+      }
+    },
+    "lint": {
+      "executor": "@nx/eslint:lint"
+    },
+    "test": {
+      "executor": "@nx/jest:jest",
+      "outputs": ["{workspaceRoot}/coverage/{projectRoot}"],
+      "options": {
+        "jestConfig": "ui/jest.config.ts"
+      }
+    }
+  },
+  "tags": []
+}

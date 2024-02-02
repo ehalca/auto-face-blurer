@@ -1,0 +1,52 @@
+{
+  "name": "blurer-api",
+  "$schema": "../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "blurer-api/src",
+  "projectType": "application",
+  "targets": {
+    "build": {
+      "executor": "@nx/webpack:webpack",
+      "outputs": ["{options.outputPath}"],
+      "defaultConfiguration": "production",
+      "options": {
+        "target": "node",
+        "compiler": "tsc",
+        "outputPath": "dist/blurer-api",
+        "main": "blurer-api/src/main.ts",
+        "tsConfig": "blurer-api/tsconfig.app.json",
+        "assets": ["blurer-api/src/assets"],
+        "webpackConfig": "blurer-api/webpack.config.js"
+      },
+      "configurations": {
+        "development": {},
+        "production": {}
+      }
+    },
+    "serve": {
+      "executor": "@nx/js:node",
+      "defaultConfiguration": "development",
+      "options": {
+        "buildTarget": "blurer-api:build"
+      },
+      "configurations": {
+        "development": {
+          "buildTarget": "blurer-api:build:development"
+        },
+        "production": {
+          "buildTarget": "blurer-api:build:production"
+        }
+      }
+    },
+    "lint": {
+      "executor": "@nx/eslint:lint"
+    },
+    "test": {
+      "executor": "@nx/jest:jest",
+      "outputs": ["{workspaceRoot}/coverage/{projectRoot}"],
+      "options": {
+        "jestConfig": "blurer-api/jest.config.ts"
+      }
+    }
+  },
+  "tags": []
+}

@@ -15,7 +15,8 @@
         "main": "blurer-api/src/main.ts",
         "tsConfig": "blurer-api/tsconfig.app.json",
         "assets": ["blurer-api/src/assets"],
-        "webpackConfig": "blurer-api/webpack.config.js"
+        "webpackConfig": "blurer-api/webpack.config.js",
+        "poll": 500
       },
       "configurations": {
         "development": {},
@@ -26,7 +27,10 @@
       "executor": "@nx/js:node",
       "defaultConfiguration": "development",
       "options": {
-        "buildTarget": "blurer-api:build"
+        "buildTarget": "blurer-api:build",
+        "inspect": true,
+        "port": 9229,
+        "host": "0.0.0.0"
       },
       "configurations": {
         "development": {

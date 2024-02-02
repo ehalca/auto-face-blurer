@@ -19,7 +19,8 @@
         "styles": ["ui/src/styles.css"],
         "scripts": [],
         "webpackConfig": "ui/webpack.config.js",
-        "postcssConfig": "ui/postcss.config.js"
+        "postcssConfig": "ui/postcss.config.js",
+        "poll": 500
       },
       "configurations": {
         "development": {
@@ -50,7 +51,15 @@
       "options": {
         "buildTarget": "ui:build",
         "hmr": true,
-        "proxyConfig": "ui/proxy.conf.json"
+        "proxyConfig": "ui/proxy.conf.json",
+        "allowedHosts": "all",
+        "port": 4201,
+        "host": "0.0.0.0",
+        "disableHostCheck": true,
+        "watchOptions": {
+          "poll": 2000,
+          "aggregateTimeout": 200
+        }
       },
       "configurations": {
         "development": {

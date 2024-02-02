@@ -1,0 +1,21 @@
+version: '3'
+
+services:
+
+  simple:
+    environment:
+      - NODE_ENV=development
+    build:
+      context: ./
+      dockerfile: Dockerfile
+    container_name: blurer
+    volumes:
+      - ./:/app
+    networks:
+      - default
+    ports:
+      - "4200:4200"
+      - "4201:4201"
+      - "3000:3000"
+      - "9229:9229"
+    command: /bin/sh -c 'yarn install && yarn serve'

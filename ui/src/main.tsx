@@ -11,7 +11,7 @@ const router = createBrowserRouter([
     children:[
       {
         id: "blurer",
-        path: "/blur",
+        path: "/",
         loader: blurerLoader,
         element: <BlurerPage/>,
         // shouldRevalidate: ars=>{
@@ -23,10 +23,10 @@ const router = createBrowserRouter([
         // },
         
       },
-      {
-        path: "/",
-        element:<Navigate to="/blur"/>
-      }
+      // {
+      //   path: "/",
+      //   element:<Navigate to="/blur"/>
+      // }
     ]
   },
   

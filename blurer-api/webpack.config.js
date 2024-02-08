@@ -12,6 +12,29 @@ module.exports = composePlugins(
       const rel = path.relative(process.cwd(), info.absoluteResourcePath);
       return `webpack:///./${rel}`;
     };
+    // const tsRule = config.module.rules.find(
+    //   (rule) => rule.test && rule.test.toString() === '/\.([jt])sx?$/' // find the ts rule
+    // );
+    // tsRule?.exclude?.push(/\.worker\.ts$/);
+    // config.module.rules.push({
+    //   test: /\.worker\.ts$/,
+    //   exclude: /node_modules/,
+    //   use: [
+    //     {
+    //       loader: 'file-loader',
+    //       options: {
+    //         outputPath: 'worker',
+    //         name: '[name].[hash:8].js',
+    //       },
+    //     },
+    //     {
+    //       loader: 'ts-loader',
+    //     },
+    //   ],
+      
+    // });
+    // config.optimization.runtimeChunk = false;
+    // delete config.optimization.splitChunks;
     return config;
   }
 );

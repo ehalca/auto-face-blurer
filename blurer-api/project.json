@@ -27,10 +27,7 @@
       "executor": "@nx/js:node",
       "defaultConfiguration": "development",
       "options": {
-        "buildTarget": "blurer-api:build",
-        "inspect": true,
-        "port": 9229,
-        "host": "0.0.0.0"
+        "buildTarget": "blurer-api:build"
       },
       "configurations": {
         "development": {

@@ -53,7 +53,7 @@
         "hmr": true,
         "proxyConfig": "ui/proxy.conf.json",
         "allowedHosts": "all",
-        "port": 4201,
+        "port": 6969,
         "host": "0.0.0.0",
         "disableHostCheck": true,
         "watchOptions": {

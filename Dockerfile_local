@@ -22,9 +22,10 @@ RUN apt-get update && apt install imagemagick -y
 
 COPY . .
 
-RUN yarn install
+# RUN yarn install
+# RUN yarn serve
 
 EXPOSE 6969
-CMD ["yarn", "serve"]
+EXPOSE 9229
 #facedetect ./tests/images.jpg --data-dir /usr/share/opencv4
 #alpr -c eu -j ./tests/car.jpg 

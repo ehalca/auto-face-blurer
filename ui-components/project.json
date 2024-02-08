@@ -1,0 +1,22 @@
+{
+  "name": "ui-components",
+  "$schema": "../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "ui-components/src",
+  "projectType": "library",
+  "targets": {
+    "build": {
+      "executor": "@nx/js:tsc",
+      "outputs": ["{options.outputPath}"],
+      "options": {
+        "outputPath": "dist/ui-components",
+        "main": "ui-components/src/index.ts",
+        "tsConfig": "ui-components/tsconfig.lib.json",
+        "assets": ["ui-components/*.md"]
+      }
+    },
+    "lint": {
+      "executor": "@nx/eslint:lint"
+    }
+  },
+  "tags": []
+}
